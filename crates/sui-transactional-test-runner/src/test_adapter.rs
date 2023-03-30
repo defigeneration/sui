@@ -584,6 +584,10 @@ impl<'a> MoveTestAdapter<'a> for SuiTestAdapter<'a> {
                 let output = self.object_summary_output(&summary, view_events, view_gas_used);
                 Ok(output)
             }
+            SuiSubcommand::UpgradePackage(UpgradePackageCommand {
+                upgrade_capability: _,
+                gas_budget: _,
+            }) => Ok(Some("FIXME".into())),
         }
     }
 }

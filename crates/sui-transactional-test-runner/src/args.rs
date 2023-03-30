@@ -93,6 +93,14 @@ pub struct ProgrammableTransactionCommand {
 }
 
 #[derive(Debug, clap::Parser)]
+pub struct UpgradePackageCommand {
+    #[clap(long = "upgrade-capability")]
+    pub upgrade_capability: Option<u64>,
+    #[clap(long = "gas-budget")]
+    pub gas_budget: Option<u64>,
+}
+
+#[derive(Debug, clap::Parser)]
 pub enum SuiSubcommand {
     #[clap(name = "view-object")]
     ViewObject(ViewObjectCommand),
@@ -102,6 +110,8 @@ pub enum SuiSubcommand {
     ConsensusCommitPrologue(ConsensusCommitPrologueCommand),
     #[clap(name = "programmable")]
     ProgrammableTransaction(ProgrammableTransactionCommand),
+    #[clap(name = "upgrade")]
+    UpgradePackage(UpgradePackageCommand),
 }
 
 #[derive(Debug)]
